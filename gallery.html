@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Gallery - VishwaShauryam</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcoEzcUKzCVP8eV1IXqSVs1z2_x1SbErHVBg&s" alt="VishwaShauryam Logo" class="logo-image" />
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link active">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="team.html" class="nav-link">Team</a>
+                </li>
+            </ul>
+            <div class="nav-logo-right">
+                <img src="vishwashauryam-logo.png" alt="Vishwashauryam Logo" class="logo-image-right" />
+            </div>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Event Gallery</h1>
+            <p>Capturing moments from our journey of excellence and dedication</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="gallery-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="training">Training Sessions</button>
+                <button class="filter-btn" data-filter="workshops">Workshops</button>
+                <button class="filter-btn" data-filter="competitions">Competitions</button>
+                <button class="filter-btn" data-filter="social">Social Events</button>
+                <button class="filter-btn" data-filter="guest">Guest Lectures</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-main">
+        <div class="container">
+            <div class="gallery-grid-main">
+                <!-- Training Sessions -->
+                <div class="gallery-item-main" data-category="training">
+                    <img src="https://via.placeholder.com/400x300/4A90E2/fff?text=Physical+Training" alt="Physical Training Session" />
+                    <div class="gallery-overlay">
+                        <h3>Physical Training Session</h3>
+                        <p>Daily fitness routine and endurance building</p>
+                        <span class="event-date">March 2024</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-main" data-category="training">
+                    <img src="https://via.placeholder.com/400x300/357ABD/fff?text=Combat+Training" alt="Combat Training" />
+                    <div class="gallery-overlay">
+                        <h3>Combat Training Workshop</h3>
+                        <p>Basic combat techniques and self-defense</p>
+                        <span class="event-date">February 2024</span>
+                    </div>
+                </div>
+
+                <!-- Workshops -->
+                <div class="gallery-item-main" data-category="workshops">
+                    <img src="https://via.placeholder.com/400x300/2E7D32/fff?text=Leadership+Workshop" alt="Leadership Workshop" />
+                    <div class="gallery-overlay">
+                        <h3>Leadership Development Workshop</h3>
+                        <p>Building leadership skills for future officers</p>
+                        <span class="event-date">January 2024</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-main" data-category="workshops">
+                    <img src="https://via.placeholder.com/400x300/F57C00/fff?text=Interview+Prep" alt="Interview Preparation" />
+                    <div class="gallery-overlay">
+                        <h3>Interview Preparation Workshop</h3>
+                        <p>SSB interview techniques and personality development</p>
+                        <span class="event-date">December 2023</span>
+                    </div>
+                </div>
+
+                <!-- Competitions -->
+                <div class="gallery-item-main" data-category="competitions">
+                    <img src="https://via.placeholder.com/400x300/7B1FA2/fff?text=Quiz+Competition" alt="Quiz Competition" />
+                    <div class="gallery-overlay">
+                        <h3>Defense Knowledge Quiz</h3>
+                        <p>Testing knowledge about Indian Armed Forces</p>
+                        <span class="event-date">November 2023</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-main" data-category="competitions">
+                    <img src="https://via.placeholder.com/400x300/D32F2F/fff?text=Fitness+Challenge" alt="Fitness Challenge" />
+                    <div class="gallery-overlay">
+                        <h3>Annual Fitness Challenge</h3>
+                        <p>Testing physical endurance and strength</p>
+                        <span class="event-date">October 2023</span>
+                    </div>
+                </div>
+
+                <!-- Social Events -->
+                <div class="gallery-item-main" data-category="social">
+                    <img src="https://via.placeholder.com/400x300/388E3C/fff?text=Annual+Day" alt="Annual Day" />
+                    <div class="gallery-overlay">
+                        <h3>Annual Day Celebration</h3>
+                        <p>Celebrating achievements and milestones</p>
+                        <span class="event-date">September 2023</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-main" data-category="social">
+                    <img src="https://via.placeholder.com/400x300/1976D2/fff?text=Cultural+Night" alt="Cultural Night" />
+                    <div class="gallery-overlay">
+                        <h3>Cultural Night</h3>
+                        <p>Showcasing talents and cultural diversity</p>
+                        <span class="event-date">August 2023</span>
+                    </div>
+                </div>
+
+                <!-- Guest Lectures -->
+                <div class="gallery-item-main" data-category="guest">
+                    <img src="https://via.placeholder.com/400x300/E64A19/fff?text=Army+Officer+Talk" alt="Army Officer Talk" />
+                    <div class="gallery-overlay">
+                        <h3>Interaction with Army Officer</h3>
+                        <p>Career guidance from serving personnel</p>
+                        <span class="event-date">July 2023</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-main" data-category="guest">
+                    <img src="https://via.placeholder.com/400x300/5D4037/fff?text=Veteran+Session" alt="Veteran Session" />
+                    <div class="gallery-overlay">
+                        <h3>Session with War Veteran</h3>
+                        <p>Inspiring stories from the battlefield</p>
+                        <span class="event-date">June 2023</span>
+                    </div>
+                </div>
+
+                <!-- More Training -->
+                <div class="gallery-item-main" data-category="training">
+                    <img src="https://via.placeholder.com/400x300/00796B/fff?text=Obstacle+Course" alt="Obstacle Course" />
+                    <div class="gallery-overlay">
+                        <h3>Obstacle Course Training</h3>
+                        <p>Building agility and problem-solving skills</p>
+                        <span class="event-date">May 2023</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-main" data-category="workshops">
+                    <img src="https://via.placeholder.com/400x300/303F9F/fff?text=First+Aid" alt="First Aid Workshop" />
+                    <div class="gallery-overlay">
+                        <h3>First Aid & Medical Training</h3>
+                        <p>Essential medical skills for defense personnel</p>
+                        <span class="event-date">April 2023</span>
+                    </div>
+                </div>
+
+                <!-- Additional Events -->
+                <div class="gallery-item-main" data-category="competitions">
+                    <img src="https://via.placeholder.com/400x300/8E24AA/fff?text=Debate+Competition" alt="Debate Competition" />
+                    <div class="gallery-overlay">
+                        <h3>Defense Policy Debate</h3>
+                        <p>Discussing current defense strategies</p>
+                        <span class="event-date">March 2023</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-main" data-category="social">
+                    <img src="https://via.placeholder.com/400x300/FF5722/fff?text=Farewell+Ceremony" alt="Farewell Ceremony" />
+                    <div class="gallery-overlay">
+                        <h3>Farewell Ceremony</h3>
+                        <p>Bidding farewell to graduating members</p>
+                        <span class="event-date">February 2023</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-main" data-category="training">
+                    <img src="https://via.placeholder.com/400x300/795548/fff?text=Map+Reading" alt="Map Reading" />
+                    <div class="gallery-overlay">
+                        <h3>Map Reading & Navigation</h3>
+                        <p>Essential navigation skills training</p>
+                        <span class="event-date">January 2023</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-main" data-category="guest">
+                    <img src="https://via.placeholder.com/400x300/607D8B/fff?text=Navy+Officer" alt="Navy Officer Session" />
+                    <div class="gallery-overlay">
+                        <h3>Navy Officer Interaction</h3>
+                        <p>Insights into naval career opportunities</p>
+                        <span class="event-date">December 2022</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-new">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcoEzcUKzCVP8eV1IXqSVs1z2_x1SbErHVBg&s" alt="VishwaShauryam Logo" class="footer-logo-image" />
+                        <div class="brand-info">
+                            <h3>Vishwashouryam</h3>
+                            <p>Defence Club</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Where Vision Meets Courage. Join us in shaping defence strategies, geopolitics, and national security through engaging debates and discussions.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="gallery.html">Events</a></li>
+                            <li><a href="team.html">Ranneet 2025</a></li>
+                            <li><a href="team.html">Join Club</a></li>
+                            <li><a href="gallery.html">Articles</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Contact Us</h4>
+                        <div class="contact-item-footer">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>VIT Pune, Maharashtra</span>
+                        </div>
+                        <div class="contact-item-footer">
+                            <i class="fas fa-envelope"></i>
+                            <span>vishwashouryam@vit.edu</span>
+                        </div>
+                        <div class="contact-item-footer">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 98765 43210</span>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Follow Us</h4>
+                        <div class="social-links-footer">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <p class="social-description">Stay updated with our latest events and activities</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vishwashouryam Defence Club, Vishwakarma Institute of Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>
