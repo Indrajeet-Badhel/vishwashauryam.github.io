@@ -5,6 +5,9 @@ const navMenu = document.querySelector('.nav-menu');
 if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+        // animate bars (optional)
+        navToggle.classList.toggle('open');
     });
 }
 
@@ -156,3 +159,28 @@ if (slides.length && dots.length) {
     showSlide(0);
     startCarousel();
 }
+
+// Mobile nav toggle - add if not already present
+(function () {
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.nav-menu');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+    // animate bars (optional)
+    toggle.classList.toggle('open');
+  });
+
+  // close nav when a link is clicked (mobile)
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        toggle.classList.remove('open');
+      }
+    });
+  });
+})();
