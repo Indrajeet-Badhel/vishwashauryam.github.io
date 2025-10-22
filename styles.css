@@ -88,9 +88,9 @@ body {
 }
 
 .nav-container {
-    max-width: 1400px;
+    max-width: 1200px; /* narrower container */
     margin: 0 ;
-    padding: 0 20px;
+    padding: 0 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,11 +129,12 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 100px;
+    gap: 28px;            /* was 100px, caused overflow on small screens */
     margin: 0;
     padding: 0;
     flex-grow: 1;
     justify-content: center;
+    flex-wrap: wrap;      /* allow wrapping instead of pushing off-screen */
 }
 
 .nav-link {
@@ -1684,7 +1685,7 @@ img {
 
 /* show toggle on small screens */
 @media (max-width: 900px) {
-  .nav-toggle { display: flex; gap:6px; align-items:center; }
+  .nav-toggle { display: flex; }
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -1702,7 +1703,7 @@ img {
   .nav-menu.active { left: 0; }
   .nav-menu .nav-item { margin: 0; }
   .nav-link { font-size: 1.05rem; padding: 10px 0; }
-  .navbar { padding: 8px 12px; border-radius: 0; }
+  .navbar { padding: 8px 10px; border-radius: 0; }
   .bar { background:#222; }
   body.menu-open { overflow: hidden; } /* prevent background scroll when menu open */
 }
@@ -1786,4 +1787,136 @@ section.gallery-main {
 /* restore horizontal gallery behaviour for big screens only */
 @media (min-width: 1001px) {
   section.gallery .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; overflow: visible; }
+}
+
+/* NAV + EXECUTIVE BOARD FIXES (override - put at end of file) */
+
+/* Make navbar compact and avoid horizontal overflow */
+.nav-container {
+  max-width: 1200px; /* narrower container */
+  padding: 0 12px;
+}
+
+/* reduce large spacing between menu items */
+.nav-menu {
+  gap: 28px;            /* was 100px, caused overflow on small screens */
+  flex-wrap: wrap;      /* allow wrapping instead of pushing off-screen */
+  justify-content: center;
+}
+
+/* Keep navbar full-width and remove large rounded corners on small screens */
+.navbar {
+  left: 0;
+  right: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Visible hamburger earlier and hide inline menu on smaller screens */
+@media (max-width: 1000px) {
+  .nav-toggle { display: flex; }
+  .nav-menu {
+    display: none; /* hide inline menu, use mobile panel */
+  }
+
+  /* mobile menu panel when active */
+  .nav-menu.active {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 64px;
+    width: 100%;
+    height: calc(100% - 64px);
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    background: #fff;
+    overflow-y: auto;
+    z-index: 1200;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+  }
+
+  /* smaller logo for mobile so it doesn't push content */
+  .nav-logo .logo-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* tighten navbar padding */
+  .navbar { padding: 8px 10px; }
+}
+
+/* Ensure hamburger visual toggling (simple) */
+.nav-toggle.open .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle.open .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.open .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* avoid the need to horizontally scroll to reach the nav: force no horizontal overflow */
+html, body {
+  overflow-x: hidden;
+}
+
+/* ========== EXECUTIVE BOARD: restore grid layout (avoid stretched/flex overflow) ========== */
+.exec-board-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+  gap: 22px;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 24px auto 0;
+  overflow: visible !important; /* no horizontal scrolling */
+  padding: 0 6px;
+}
+
+/* member card styling */
+.exec-member {
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+/* circular profile images with consistent size */
+.exec-image {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  background: #f3f3f3;
+  border: 2px solid rgba(232,89,12,0.06);
+}
+
+/* text */
+.exec-position {
+  color: #E8590C;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: 2px;
+}
+
+.exec-name {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 2px;
+}
+
+/* Responsive tweaks for very small screens */
+@media (max-width: 640px) {
+  .exec-board-grid { gap: 14px; padding: 0 12px; }
+  .exec-member { max-width: 320px; width: 92vw; padding: 12px 14px; }
+  .exec-image { width: 96px; height: 96px; }
+  .nav-menu.active { top: 60px; height: calc(100% - 60px); }
 }
