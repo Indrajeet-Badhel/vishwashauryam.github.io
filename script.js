@@ -2,9 +2,11 @@
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+}
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -17,35 +19,64 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
         }
-        // Close mobile menu if open
-        navMenu.classList.remove('active');
+        if (navMenu) {
+            navMenu.classList.remove('active');
+        }
     });
 });
 
 // Navbar Background on Scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-    }
-});
+const navbar = document.querySelector('.navbar');
+if (navbar) {
+    // keep the scroll color behavior only when navbar is NOT in 'transparent' state
+    window.addEventListener('scroll', () => {
+        if (navbar.classList.contains('transparent')) return;
+        navbar.style.background = window.scrollY > 100
+            ? 'rgba(255, 255, 255, 0.98)'
+            : 'rgba(255, 255, 255, 0.95)';
+    });
+}
+
+// make navbar transparent once the hero section is scrolled past
+const hero = document.querySelector('.hero');
+if (hero && navbar) {
+    const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // hero visible -> remove transparent (show normal navbar)
+                navbar.classList.remove('transparent');
+                // restore background immediately (optional)
+                navbar.style.background = window.scrollY > 100
+                    ? 'rgba(255, 255, 255, 0.98)'
+                    : 'rgba(255, 255, 255, 0.95)';
+            } else {
+                // hero not visible -> make navbar transparent
+                navbar.classList.add('transparent');
+                // ensure inline background cleared so CSS .transparent takes effect
+                navbar.style.background = '';
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0,
+        // adjust if you want the toggle earlier/later (height of navbar ~ 70px)
+        rootMargin: '0px 0px -1px 0px'
+    });
+
+    heroObserver.observe(hero);
+}
 
 // Contact Form Submission
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const subject = this.querySelector('input[placeholder="Subject"]').value;
-        const message = this.querySelector('textarea').value;
-        
-        // Simple validation
+
+        const name = this.querySelector('input[type="text"]')?.value.trim();
+        const email = this.querySelector('input[type="email"]')?.value.trim();
+        const subject = this.querySelector('input[placeholder="Subject"]')?.value.trim();
+        const message = this.querySelector('textarea')?.value.trim();
+
         if (name && email && subject && message) {
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
@@ -55,11 +86,11 @@ if (contactForm) {
     });
 }
 
-// Gallery Image Click Handler (for future lightbox functionality)
+// Gallery Image Click Handler
 document.querySelectorAll('.gallery-item img').forEach(img => {
-    img.addEventListener('click', function() {
-        // Future: Add lightbox functionality here
+    img.addEventListener('click', function () {
         console.log('Gallery image clicked:', this.alt);
+        // Future: Add lightbox functionality here
     });
 });
 
@@ -83,10 +114,45 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe sections for animation
 document.querySelectorAll('section').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
 });
+
+// Carousel Functionality
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.dot');
+let current = 0;
+let timer = null;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+    });
+    current = index;
+}
+
+function nextSlide() {
+    const next = (current + 1) % slides.length;
+    showSlide(next);
+}
+
+function startCarousel() {
+    timer = setInterval(nextSlide, 4000);
+}
+
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        clearInterval(timer);
+        showSlide(i);
+        startCarousel();
+    });
+});
+
+if (slides.length && dots.length) {
+    showSlide(0);
+    startCarousel();
+}

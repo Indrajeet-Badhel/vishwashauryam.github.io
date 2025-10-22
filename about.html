@@ -4,162 +4,620 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - VishwaShauryam</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            padding: 12px 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .nav-logo-right .logo-image-right {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #E8590C;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            margin-top: 80px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(232, 89, 12, 0.1);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .intro-text {
+            font-size: 1.4rem;
+            color: #555;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Story Section */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .story-text h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .story-image {
+            position: relative;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        /* Values Grid */
+        .values-section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #E8590C;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: #E8590C;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Statistics */
+        .stats-section {
+            background: #E8590C;
+            color: white;
+            padding: 60px 0;
+            margin: 80px 0;
+            border-radius: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: #f8f9fa;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 80px 0;
+            position: relative;
+        }
+
+        .quote-section::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8rem;
+            color: #E8590C;
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            color: #E8590C;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Footer Styles (keeping same as original) */
+        .footer-new {
+            background-color: #0b2149;
+            color: #ffffff;
+            padding: 40px 0 20px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-column h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #00b4d8;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo-image {
+            width: 55px;
+            height: 55px;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        .footer-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 5px;
+            color: #d6e3f0;
+        }
+
+        .contact p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact i {
+            color: #00b4d8;
+            font-size: 1rem;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-right: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00b4d8;
+        }
+
+        .social-description {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #cccccc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .quote-text {
+                font-size: 1.4rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-logo {
+                justify-content: center;
+            }
+
+            .contact p {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="vishwashauryam-logo.jpg" alt="Vishwashauryam Logo" class="logo-image" />
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="gallery.html" class="nav-link">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link active">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="team.html" class="nav-link">Team</a>
-                </li>
-            </ul>
-            <div class="nav-logo-right">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcoEzcUKzCVP8eV1IXqSVs1z2_x1SbErHVBg&s" alt="VIT Pune Logo" class="logo-image-right" />
-            </div>
-            <div class="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+     <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="vishwashauryam-logo.jpg" alt="Vishwashauryam Logo" class="logo-image" />
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" class="nav-link">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a href="team.html" class="nav-link">Team</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="#footer-contact" class="nav-link ">Contact Us</a>
+        </li>
+      </ul>
+      <div class="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>About VishwaShauryam</h1>
-            <p>Dedicated to guiding students towards a career in the defense forces</p>
-        </div>
-    </section>
 
-    <!-- About Content -->
-    <section class="about-content-page">
-        <div class="container">
-            <div class="about-description">
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <h3>Sports & Fitness Facilities</h3>
-                        <p>Our club provides well-equipped fitness centers, swimming facilities, tennis courts, badminton courts, and basketball courts. These comprehensive sports facilities ensure our members maintain peak physical condition while developing teamwork and competitive spirit essential for defense careers.</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>Recreational & Social Activities</h3>
-                        <p>We regularly organize social events, cultural programs, and entertainment activities designed to boost morale and foster camaraderie among members. These events create lasting bonds and develop the social skills crucial for military leadership and teamwork.</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>Dining & Community Services</h3>
-                        <p>Our dining facilities provide a space where members and their families can come together, sharing meals and experiences. This creates a supportive community environment that mirrors the close-knit nature of military life and builds lasting relationships.</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>Training & Accommodation</h3>
-                        <p>We offer specialized training programs and temporary accommodation facilities for members participating in intensive preparation courses. Our residential programs provide immersive experiences that prepare students for the rigorous demands of defense training.</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>Community Engagement</h3>
-                        <p>VishwaShauryam serves as a bridge between defense aspirants and the broader community. We facilitate interactions that foster mutual understanding and respect, while building networks that support our members throughout their careers.</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>Holistic Development</h3>
-                        <p>Beyond physical training, we focus on character building, leadership development, and academic excellence. Our comprehensive approach ensures that our members are well-prepared for both the challenges and opportunities that await them in defense careers.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Image Section -->
-            <div class="about-image-section">
-                <img src="https://via.placeholder.com/800x400/4A90E2/fff?text=VishwaShauryam+Club+Activities" alt="Club Activities" />
-            </div>
-
-            <!-- Sanskrit Quote -->
-            <div class="sanskrit-quote">
-                <p class="sanskrit-text">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</p>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <p class="hero-subtitle"> Founded by students who believed that serving the nation is the highest honor, VishwaShauryam has grown from a small study group into VIT Pune's premier defense aspirants community.</p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer-new">
-        <div class="container">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="vishwashauryam-logo.jpg" alt="Vishwashauryam Logo" class="footer-logo-image" />
-                        <div class="brand-info">
-                            <h3>Vishwashouryam</h3>
-                            <p>Defence Club</p>
-                        </div>
-                    </div>
-                    <p class="footer-description">
-                        Where Vision Meets Courage. Join us in shaping defence strategies, geopolitics, and national security through engaging debates and discussions.
-                    </p>
-                </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Intro Section -->
+        
 
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="gallery.html">Events</a></li>
-                            <li><a href="team.html">Ranneet 2025</a></li>
-                            <li><a href="team.html">Join Club</a></li>
-                            <li><a href="gallery.html">Articles</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Contact Us</h4>
-                        <div class="contact-item-footer">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>VIT Pune, Maharashtra</span>
-                        </div>
-                        <div class="contact-item-footer">
-                            <i class="fas fa-envelope"></i>
-                            <span>vishwashouryam@vit.edu</span>
-                        </div>
-                        <div class="contact-item-footer">
-                            <i class="fas fa-phone"></i>
-                            <span>+91 98765 43210</span>
-                        </div>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Follow Us</h4>
-                        <div class="social-links-footer">
-                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <p class="social-description">Stay updated with our latest events and activities</p>
-                    </div>
-                </div>
+        <!-- Story Section -->
+        <section class="story-section">
+            <div class="story-text">
+                <h2>Where It All Began</h2>
+                <p>
+                    It started  when a group of engineering students realized they shared something beyond academics—a calling to serve India. What began as weekend discussions about current affairs and defense strategies in the college canteen has evolved into a structured platform that has guided hundreds of students toward their dreams of joining the armed forces.
+                </p>
+                <p>
+                    Today, we're not just a club; we're a family. A family that celebrates when one of us clears the NDA interview, supports each other through the tough preparation months, and maintains bonds that last long after graduation.
+                </p>
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Vishwashouryam Defence Club, Vishwakarma Institute of Technology. All rights reserved.</p>
+            <div class="story-image">
+                <img src="vision.png" alt="VishwaShauryam journey" />
             </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <p class="quote-text">सेवा इति कर्तव्यम्</p>
+            <p class="quote-author">Service is our duty </p>
+        </section>
+    </div>
+
+    <!-- Footer (keeping same as original) -->
+
+  <footer class="footer-new" id="footer-contact">
+    <div class="footer-container">
+      <div class="footer-column brand">
+        <div class="footer-logo">
+          <img src="vishwashauryam-logo.jpg" alt="VishwaShauryam Logo" class="footer-logo-image" />
+          <div class="brand-info">
+            <h3>Vishwashouryam</h3>
+            <p>Defence Club</p>
+          </div>
         </div>
-    </footer>
+        <p class="footer-description">
+          Where Vision Meets Courage. Join us in exploring defence strategies, geopolitics,
+          and national security through engaging debates and discussions.
+        </p>
+      </div>
+
+      <div class="footer-column links">
+       <h4>Contact Us</h4>
+        <p><i class="fas fa-map-marker-alt"></i> VIT Pune, Maharashtra</p>
+        <p><i class="fas fa-envelope"></i> vishwashouryam@vit.edu</p>
+        <p><i class="fas fa-phone"></i> +91 +919860510028</p>
+      </div>
+
+
+      <div class="footer-column social">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/vishwa_shauryam?igsh=MTc1Z3Y3aHFzdmQ3Nw==" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/vishwa-shauryam-vit-pune/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="social-description">
+          Stay updated with our latest events and activities
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Vishwashouryam Defence Club, Vishwakarma Institute of Technology. All rights reserved.</p>
+    </div>
+  </footer>
 
     <script src="script.js"></script>
 </body>
