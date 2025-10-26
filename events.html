@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VishwaShauryam - The Official defense Club of VIT Pune</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<style>html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content { /* Give your main wrapper this class */
+  flex: 1;
+}
+
+</style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="vishwashauryam-logo.jpg" alt="Vishwashauryam Logo" class="logo-image" />
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" class="nav-link">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a href="team.html" class="nav-link">Team</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="#footer-contact" class="nav-link ">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="events.html" class="nav-link">Events</a>
+        </li>
+      </ul>
+      
+      <div class="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+  <!-- event.html -->
+<section class="event-banner">
+  <div class="event-banner-content">
+    <h1 class="event-title">
+      🚀 Coming Up Soon!
+    </h1>
+    <p class="event-subtitle">
+      Something <span class="gradient-text">Innovative</span>, <span class="gradient-text2">Exciting</span> &amp; <span class="gradient-text3">Unmissable</span> is on the way!
+    </p>
+  </div>
+</section> 
+  <footer class="footer-new" id="footer-contact">
+    <div class="footer-container">
+      <div class="footer-column brand">
+        <div class="footer-logo">
+          <img src="vishwashauryam-logo.jpg" alt="VishwaShauryam Logo" class="footer-logo-image" />
+          <div class="brand-info">
+            <h3>Vishwashouryam</h3>
+            <p>defense Club</p>
+          </div>
+        </div>
+        <p class="footer-description">
+          Where Vision Meets Courage. Join us in exploring defense strategies, geopolitics,
+          and national security through engaging debates and discussions.
+        </p>
+      </div>
+
+      <div class="footer-column links">
+       <h4>Contact Us</h4>
+        <p><i class="fas fa-map-marker-alt"></i> VIT Pune, Maharashtra</p>
+        <p><i class="fas fa-envelope"></i> shauryam@vit.edu</p>
+        <p><i class="fas fa-phone"></i> +919860510028</p>
+      </div>
+
+
+      <div class="footer-column social">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="https://www.instagram.com/vishwa_shauryam?igsh=MTc1Z3Y3aHFzdmQ3Nw==" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/vishwa-shauryam-vit-pune/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="social-description">
+          Stay updated with our latest events and activities
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 VishwaShauryam defense Club, Vishwakarma Institute of Technology. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div><script>
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const closeBtn = document.querySelector(".close");
+
+document.querySelectorAll(".gallery-item img").forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "block";
+    modalImg.src = img.src;
+  });
+});
+
+closeBtn.onclick = () => {
+  modal.style.display = "none";
+};
+</script>   
+  <script src="script.js"></script>
+</body>
+
+
+</html>

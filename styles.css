@@ -3450,3 +3450,63 @@ section.gallery-main .gallery-grid-main {
   overflow: visible;
   flex-wrap: unset;
 }
+.event-banner {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #f8f9fa 0, #ffb056 100);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.event-title {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #E8590C 0, #F5A623 100);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 6px 32px rgba(232, 89, 12, 0.18);
+}
+
+.event-subtitle {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #E8590C, #F5A623);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text2 {
+  background: linear-gradient(90deg, #00b4d8, #0b2149);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text3 {
+  background: linear-gradient(90deg, #16213E, #0F3460);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .event-title { font-size: 2rem; }
+  .event-subtitle { font-size: 1rem; }
+  .event-banner { padding: 60px 0; }
+}
