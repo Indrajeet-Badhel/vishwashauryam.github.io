@@ -144,3 +144,42 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+// Restore navbar transparency behavior when hero is scrolled past
+document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('.navbar');
+    const hero = document.querySelector('.hero');
+
+    if (!navbar || !hero) return;
+
+    // Scroll handler for navbar background when opaque
+    function updateNavbarBackground() {
+        if (navbar.classList.contains('transparent')) return;
+        navbar.style.background = window.scrollY > 100
+            ? 'rgba(255, 255, 255, 0.98)'
+            : 'rgba(255, 255, 255, 0.95)';
+    }
+
+    window.addEventListener('scroll', updateNavbarBackground);
+
+    const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // hero visible -> remove transparent
+                navbar.classList.remove('transparent');
+                updateNavbarBackground();
+            } else {
+                // hero not visible -> make navbar transparent
+                navbar.classList.add('transparent');
+                // clear inline background so CSS .transparent takes effect
+                navbar.style.background = '';
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0,
+        rootMargin: '0px 0px -1px 0px'
+    });
+
+    heroObserver.observe(hero);
+});

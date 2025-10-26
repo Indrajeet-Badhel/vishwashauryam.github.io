@@ -1892,7 +1892,11 @@ body {
     padding: 2px 0;
     box-shadow: 0 2px 15px rgba(232, 89, 12, 0.08);
     border-bottom: 1px solid rgba(232, 89, 12, 0.1);
-    border-radius: 12px;
+    /* Rounded only on bottom corners */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .nav-container {
