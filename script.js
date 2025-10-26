@@ -107,3 +107,40 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+// Carousel initializer: auto-advance slides and wire up dots
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    let current = 0;
+    let timer = null;
+
+    function showSlide(index) {
+        if (!slides.length || !dots.length) return;
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        current = index;
+    }
+
+    function nextSlide() {
+        const next = (current + 1) % slides.length;
+        showSlide(next);
+    }
+
+    function startCarousel() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(nextSlide, 4000);
+    }
+
+    if (slides.length && dots.length) {
+        showSlide(0);
+        startCarousel();
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                showSlide(i);
+                startCarousel();
+            });
+        });
+    }
+});
