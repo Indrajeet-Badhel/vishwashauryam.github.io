@@ -72,6 +72,109 @@ body {
     padding: 0 20px;
 }
 
+/* image fix */
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    /* Fix Vision and Mission sections for mobile */
+    .vision-content,
+    .mission-content {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+    }
+
+    /* Ensure images stack above text on mobile */
+    .vision-content .vision-image {
+        order: -1;
+    }
+
+    .mission-content .mission-image {
+        order: -1;
+    }
+
+    /* Make images full width and better sized on mobile */
+    .vision-image img,
+    .mission-image img {
+        width: 100%;
+        height: 250px;
+        max-width: 100%;
+    }
+
+    /* Center align text on mobile for better readability */
+    .vision-text,
+    .mission-text {
+        text-align: center;
+    }
+
+    .vision-text p,
+    .mission-text p {
+        text-align: center;
+    }
+
+    .vision-text h2::after,
+    .mission-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    /* New Footer Responsive */
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .social-links-footer {
+        justify-content: center;
+    }
+
+    .contact-item-footer {
+        justify-content: center;
+    }
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
