@@ -75,17 +75,24 @@ body {
 /* image fix */
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Navigation Menu Mobile */
+    .nav-container {
+        padding: 0 15px;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 60px;
         flex-direction: column;
         background-color: white;
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: left 0.3s ease;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 20px 0;
+        gap: 15px;
+        z-index: 999;
     }
 
     .nav-menu.active {
@@ -96,8 +103,24 @@ body {
         display: flex;
     }
 
+    .nav-logo .logo-image {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* Hero Section Mobile */
+    .hero {
+        height: 70vh;
+        min-height: 500px;
+    }
+
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        margin-top: -100px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
     }
 
     /* Fix Vision and Mission sections for mobile */
@@ -105,6 +128,7 @@ body {
     .mission-content {
         grid-template-columns: 1fr !important;
         gap: 30px;
+        padding: 0 15px;
     }
 
     /* Ensure images stack above text on mobile */
@@ -120,19 +144,28 @@ body {
     .vision-image img,
     .mission-image img {
         width: 100%;
-        height: 250px;
+        height: 220px;
         max-width: 100%;
+        object-fit: cover;
     }
 
-    /* Center align text on mobile for better readability */
+    /* Better text alignment on mobile */
     .vision-text,
     .mission-text {
+        text-align: left;
+        padding: 0 10px;
+    }
+
+    .vision-text h2,
+    .mission-text h2 {
+        font-size: 1.8rem;
         text-align: center;
     }
 
     .vision-text p,
     .mission-text p {
-        text-align: center;
+        text-align: justify;
+        font-size: 0.95rem;
     }
 
     .vision-text h2::after,
@@ -141,37 +174,98 @@ body {
         transform: translateX(-50%);
     }
 
+    /* Section Titles */
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        padding: 0 15px;
     }
 
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .section-description {
+        font-size: 0.95rem;
+        padding: 0 15px;
     }
 
-    /* New Footer Responsive */
-    .footer-main {
+    /* Gallery Grid Mobile */
+    .gallery-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
+        gap: 15px;
+        padding: 0 15px;
     }
 
-    .footer-links {
-        grid-template-columns: 1fr;
+    .gallery-item img {
+        height: 200px;
+    }
+
+    /* Executive Board Mobile */
+    .exec-board-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .exec-member {
+        max-width: 100%;
+    }
+
+    .exec-image {
+        width: 100%;
+        height: 120px;
+    }
+
+    /* Footer Mobile */
+    .footer-new {
+        padding: 30px 0 15px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr !important;
         gap: 30px;
+        text-align: center;
+        padding: 0 20px;
     }
 
     .footer-logo {
         justify-content: center;
     }
 
-    .social-links-footer {
+    .footer-column.links p,
+    .footer-column.contact p {
         justify-content: center;
     }
 
-    .contact-item-footer {
+    .social-links {
         justify-content: center;
+    }
+
+    .footer-bottom {
+        font-size: 0.85rem;
+        padding: 0 15px;
+    }
+
+    /* Container Padding */
+    .container {
+        padding: 0 20px;
+    }
+
+    /* Vision Courage Section */
+    .vision-courage {
+        padding: 50px 0;
+    }
+
+    /* Our Vision/Mission Sections */
+    .our-vision,
+    .our-mission {
+        padding: 50px 0;
+    }
+
+    /* Gallery Section */
+    .gallery {
+        padding: 50px 0;
+    }
+
+    /* Executive Board */
+    .executive-board {
+        padding: 50px 0;
     }
 }
 
